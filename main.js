@@ -22,9 +22,9 @@ function playRound(computerChoice, humanChoice) {
         console.log (`It's a tie! Both chose ${humanChoice}.`)
         return
     } else if (
-    (humanChoice === 'rock' && computerChoice === 'scissors') ||
-    (humanChoice === 'paper' && computerChoice === 'rock') ||
-    (humanChoice === 'scissors' && computerChoice === 'paper')
+    (humanChoice === 'Rock' && computerChoice === 'Scissors') ||
+    (humanChoice === 'Paper' && computerChoice === 'Rock') ||
+    (humanChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
         console.log (`You win! ${humanChoice} beats ${computerChoice}.`)
         return 1
