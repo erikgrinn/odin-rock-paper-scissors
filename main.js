@@ -41,7 +41,9 @@ function playGame() {
     
     for (var i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice()
+        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
         let humanChoice = getHumanChoice()
+        humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
         result = playRound(computerChoice, humanChoice)
         if (result === 0) {
             computerScore++
