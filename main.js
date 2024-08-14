@@ -63,12 +63,10 @@ function playRound(computerChoice, humanChoice) {
 //     (humanChoice === 'scissors' && computerChoice === 'paper')
 //     ) {
 //         humanScore++
-//         return (`You win! ${humanChoice} beats ${computerChoice}. The current score is:
-//             Human - ${humanScore} to Computer - ${computerScore}`)
+//         return (`You win! ${humanChoice} beats ${computerChoice}. 
 //     } else {
 //         computerScore++
-//         return (`Computer wins! ${computerChoice} beats ${humanChoice}. The current score is:
-//             Human - ${humanScore} to Computer - ${computerScore}`)
+//         return (`Computer wins! ${computerChoice} beats ${humanChoice}. 
 //     }
 // }
 
