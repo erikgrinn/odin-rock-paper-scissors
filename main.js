@@ -20,32 +20,30 @@ function getHumanChoice() {
 
 // one way, initialize choices outside of function and pass in
 
-let computerScore = 0
-let humanScore = 0 
+// let computerScore = 0
+// let humanScore = 0 
 
-let computerChoice = getComputerChoice()
-let humanChoice = getHumanChoice()
+// let computerChoice = getComputerChoice()
+// let humanChoice = getHumanChoice()
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
-        return (`It's a tie! Both chose ${humanChoice}. The current score is:
-            Human - ${humanScore} to Computer - ${computerScore}`)
+        console.log (`It's a tie! Both chose ${humanChoice}.`)
+        return
     } else if (
     (humanChoice === 'rock' && computerChoice === 'scissors') ||
     (humanChoice === 'paper' && computerChoice === 'rock') ||
     (humanChoice === 'scissors' && computerChoice === 'paper')
     ) {
-        humanScore++
-        return (`You win! ${humanChoice} beats ${computerChoice}. The current score is:
-            Human - ${humanScore} to Computer - ${computerScore}`)
+        console.log (`You win! ${humanChoice} beats ${computerChoice}.`)
+        return 1
     } else {
-        computerScore++
-        return (`Computer wins! ${computerChoice} beats ${humanChoice}. The current score is:
-            Human - ${humanScore} to Computer - ${computerScore}`)
+        console.log (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
+        return 0
     }
 }
 
-console.log(playRound(computerChoice, humanChoice))
+// console.log(playRound(computerChoice, humanChoice))
 
 // another way, don't pass in arguments and get choices inside function
 
@@ -75,3 +73,31 @@ console.log(playRound(computerChoice, humanChoice))
 // }
 
 // console.log(playRound())
+
+function playGame() {
+    let computerScore = 0
+    let humanScore = 0 
+    
+    for (var i = 0; i < 5; i++) {
+        let computerChoice = getComputerChoice()
+        let humanChoice = getHumanChoice()
+        result = playRound(computerChoice, humanChoice)
+        if (result === 0) {
+            computerScore++
+        } else if (result === 1) {
+            humanScore++
+        }
+    }
+
+    let winner = null
+    if (computerScore > humanScore) {
+        winner = 'Computer'
+    } else if (humanScore > computerScore) {
+        winner = 'Human'
+    } else {
+        winner = `Neither player`
+    }
+    return (`${winner} wins! The final score is: Human - ${humanScore} to Computer - ${computerScore}`)
+}
+
+console.log(playGame())
