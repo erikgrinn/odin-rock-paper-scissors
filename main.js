@@ -20,27 +20,32 @@ function getHumanChoice() {
 
 // one way, initialize choices outside of function and pass in
 
-// let computerScore = 0
-// let humanScore = 0 
+let computerScore = 0
+let humanScore = 0 
 
-// let computerChoice = getComputerChoice()
-// let humanChoice = getHumanChoice()
+let computerChoice = getComputerChoice()
+let humanChoice = getHumanChoice()
 
-// function playRound(computerChoice, humanChoice) {
-//     if (computerChoice === humanChoice) {
-//         return `It's a tie! Both chose ${humanChoice}.`
-//     } else if (
-//     (humanChoice === 'rock' && computerChoice === 'scissors') ||
-//     (humanChoice === 'paper' && computerChoice === 'rock') ||
-//     (humanChoice === 'scissors' && computerChoice === 'paper')
-//     ) {
-//         return `You win! ${humanChoice} beats ${computerChoice}.`
-//     } else {
-//         return `Computer wins! ${computerChoice} beats ${humanChoice}.`
-//     }
-// }
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice === humanChoice) {
+        return (`It's a tie! Both chose ${humanChoice}. The current score is:
+            Human - ${humanScore} to Computer - ${computerScore}`)
+    } else if (
+    (humanChoice === 'rock' && computerChoice === 'scissors') ||
+    (humanChoice === 'paper' && computerChoice === 'rock') ||
+    (humanChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        humanScore++
+        return (`You win! ${humanChoice} beats ${computerChoice}. The current score is:
+            Human - ${humanScore} to Computer - ${computerScore}`)
+    } else {
+        computerScore++
+        return (`Computer wins! ${computerChoice} beats ${humanChoice}. The current score is:
+            Human - ${humanScore} to Computer - ${computerScore}`)
+    }
+}
 
-// console.log(playRound(computerChoice, humanChoice))
+console.log(playRound(computerChoice, humanChoice))
 
 // another way, don't pass in arguments and get choices inside function
 
@@ -51,16 +56,21 @@ function getHumanChoice() {
 //     let computerChoice = getComputerChoice();
 //     let humanChoice = getHumanChoice();
 
-//     if (humanChoice === computerChoice) {
-//         return `It's a tie! Both chose ${humanChoice}.`;
+//     if (computerChoice === humanChoice) {
+//         return (`It's a tie! Both chose ${humanChoice}. The current score is:
+//             Human - ${humanScore} to Computer - ${computerScore}`)
 //     } else if (
-//         (humanChoice === 'rock' && computerChoice === 'scissors') ||
-//         (humanChoice === 'paper' && computerChoice === 'rock') ||
-//         (humanChoice === 'scissors' && computerChoice === 'paper')
+//     (humanChoice === 'rock' && computerChoice === 'scissors') ||
+//     (humanChoice === 'paper' && computerChoice === 'rock') ||
+//     (humanChoice === 'scissors' && computerChoice === 'paper')
 //     ) {
-//         return `You win! ${humanChoice} beats ${computerChoice}.`;
+//         humanScore++
+//         return (`You win! ${humanChoice} beats ${computerChoice}. The current score is:
+//             Human - ${humanScore} to Computer - ${computerScore}`)
 //     } else {
-//         return `Computer wins! ${computerChoice} beats ${humanChoice}.`;
+//         computerScore++
+//         return (`Computer wins! ${computerChoice} beats ${humanChoice}. The current score is:
+//             Human - ${humanScore} to Computer - ${computerScore}`)
 //     }
 // }
 
