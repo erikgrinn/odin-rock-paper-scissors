@@ -1,5 +1,3 @@
-// two different ways
-
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const randomIndex = Math.floor(Math.random() * choices.length)
@@ -18,13 +16,6 @@ function getHumanChoice() {
     }
 }
 
-// one way, initialize choices outside of function and pass in
-
-// let computerScore = 0
-// let humanScore = 0 
-
-// let computerChoice = getComputerChoice()
-// let humanChoice = getHumanChoice()
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
@@ -43,34 +34,6 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-// console.log(playRound(computerChoice, humanChoice))
-
-// another way, don't pass in arguments and get choices inside function
-
-// let computerScore = 0
-// let humanScore = 0 
-
-// function playRound() {
-//     let computerChoice = getComputerChoice();
-//     let humanChoice = getHumanChoice();
-
-//     if (computerChoice === humanChoice) {
-//         return (`It's a tie! Both chose ${humanChoice}. The current score is:
-//             Human - ${humanScore} to Computer - ${computerScore}`)
-//     } else if (
-//     (humanChoice === 'rock' && computerChoice === 'scissors') ||
-//     (humanChoice === 'paper' && computerChoice === 'rock') ||
-//     (humanChoice === 'scissors' && computerChoice === 'paper')
-//     ) {
-//         humanScore++
-//         return (`You win! ${humanChoice} beats ${computerChoice}. 
-//     } else {
-//         computerScore++
-//         return (`Computer wins! ${computerChoice} beats ${humanChoice}. 
-//     }
-// }
-
-// console.log(playRound())
 
 function playGame() {
     let computerScore = 0
@@ -97,5 +60,6 @@ function playGame() {
     }
     return (`${winner} wins! The final score is: Human - ${humanScore} to Computer - ${computerScore}`)
 }
+
 
 console.log(playGame())
