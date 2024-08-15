@@ -7,7 +7,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     const choices = ['rock', 'paper', 'scissors']
-    const userInput = String(prompt('enter your choice')).toLowerCase()
+    const userInput = String(prompt(`Rock, Paper, or Scissors?`)).toLowerCase()
     if (choices.includes(userInput)) {
         return userInput;
     } else {
