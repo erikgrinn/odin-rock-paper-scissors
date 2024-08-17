@@ -39,18 +39,18 @@ function playGame() {
     let computerScore = 0
     let humanScore = 0 
     
-    for (var i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice()
-        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-        let humanChoice = getHumanChoice()
-        humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
-        result = playRound(computerChoice, humanChoice)
-        if (result === 0) {
-            computerScore++
-        } else if (result === 1) {
-            humanScore++
-        }
-    }
+    // for (var i = 0; i < 5; i++) {
+    //     let computerChoice = getComputerChoice()
+    //     computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+    //     let humanChoice = getHumanChoice()
+    //     humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
+    //     result = playRound(computerChoice, humanChoice)
+    //     if (result === 0) {
+    //         computerScore++
+    //     } else if (result === 1) {
+    //         humanScore++
+    //     }
+    // }
 
     let winner = null
     if (computerScore > humanScore) {
