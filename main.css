@@ -41,12 +41,10 @@ button {
     flex: 1;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     background-color: black;
-    border: 5px solid rgb(25, 99, 92);
+    border: 5px ridge rgb(25, 99, 92);
     border-radius: 5px;
-    /* margin:; */
     padding-bottom: 51px;
     /* added position for roundDiv */
     position: relative; 
@@ -85,8 +83,10 @@ button {
     background: rgb(0, 0, 0);
     width: 100px;
     height: 100px;
-    border: 3px dotted rgb(25, 99, 92);
-    border-radius: 8px;
+    border: 3px solid rgb(25, 99, 92);
+    border-radius: 50%;
+
+    /* border-radius: 8px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,150 +121,11 @@ button {
     border-right: 4px dotted rgb(25, 99, 92);
 }
 
+h1 {
+    color:silver
+}
+
 h2 {
     font-style: italic;
 }
 
-
-/*  ----- Page layout blocks -----  */
-/* header {}
-main {}
-section {}
-article {}
-  #topic1 {}
-  #topic2 {}
-div {}
-aside {}
-footer {} */
-
-/* ----- Anchors ----- Text links */
-/* a {}
-a:link {}
-a:hover {}
-a:active {}
-a:visited {} */
-
-/*  ----- Navigation ----- Override text links for navigation only.  */
-/* nav {}
-nav a {}
-nav a:hover {} */
-
-/*  -----  Typography  ----- */
-/* p {}
-br {}
-ol, ul, dl {}
-li {}
-dt {}
-dd {}
-
-h1, h2, h3, h4, h5, h6 {} 
-h1 {}
-h2 {}
-h3 {}
-h4 {}
-h5 {}
-h6 {}
-
-abbr {}
-acronym {}
-address {}
-blockquote {}
-  q {}
-  cite {}
-em {}
-hr {}
-mark {}
-s {}
-span {}
-strong {}
-sub {}
-sup {}
-time {} */
-
-/*  ----- Coding or instructional typography ----- */
-/* pre {}
-code {}
-kbd {}
-samp {}
-var {}
-del {} 
-ins {} */
-
-/*  ----- Table ----- */
-/* table {}
-caption {}
-thead {}
-tbody {}
-tfoot {}
-tr {}
-  tr:nth-child(even) {}
-th {}
-td {}
-  td:nth-child(1) {}
-colgroup {}
-data {}
-datalist {} */
-
-
-/*  ----- Form ----- */
-/* form {}
-fieldset {}
-  legend {}
-label {}
-button {}
-input {}
-select {}
-  optgroup {}
-  option {}
-textarea {}
-output {}
-meter {}
-progress {} */
-
-
-/* ----- Media ----- */
-/* figure {}
-  figcaption {}
-  figure img {}
-svg {}
-picture {}
-  source {}
-iframe {}
-video {}
-audio {}
-embed {}
-object {} */
-
-/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
-/* .gallery {}
-
-.floatright {}
-.floatleft {}
-.center-middle {}
-
-.ten {}
-.twenty {}
-.thirty {}
-.forty {}
-.fifty {}
-.sixty {}
-.seventy {}
-.eighty {}
-
-.radius {}
-.circle {}
-.boxshadow {}
-.tshadow {} 
-.gradient {}
-.shape {} */
-
-/* @keyframes App-logo {} */
-
-/*   ===== TABLET  media query overrides mobile styles ===== */
-/* @media all and (min-width: 600px) {} */
-
-/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
-/* @media all and (min-width: 1080px) {} */
-
-/*   ===== PRINT  media query overrides previous styles =====  */
-/* @media print {} */
