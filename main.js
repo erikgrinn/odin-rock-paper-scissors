@@ -8,18 +8,18 @@ function getComputerChoice() {
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
-        let score = `It's a tie! Both chose ${humanChoice}.`
-        return score
+        let roundSummary = `It's a tie! Both chose ${humanChoice}.`
+        return roundSummary
     } else if (
     (humanChoice === 'Rock' && computerChoice === 'Scissors') ||
     (humanChoice === 'Paper' && computerChoice === 'Rock') ||
     (humanChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
-        let score = `You win! ${humanChoice} beats ${computerChoice}.`
-        return score
+        let roundSummary = `You win! ${humanChoice} beats ${computerChoice}.`
+        return roundSummary
     } else {
-        let score = (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
-        return score
+        let roundSummary = (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
+        return roundSummary
     }
 }
 
@@ -58,7 +58,7 @@ const container = document.querySelector('div.container')
 // and this is a manual technique for positioning of the created roundDiv within padding of container in css
 // also, added position: relative in css for container
 const roundDiv = document.createElement('div')
-roundDiv.classList.add('score')
+roundDiv.classList.add('roundSummary')
 roundDiv.style.color = 'rgb(237, 75, 12)'
 roundDiv.style.position = 'absolute'
 roundDiv.style.bottom = '20px'
