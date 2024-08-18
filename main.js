@@ -5,32 +5,21 @@ function getComputerChoice() {
     // return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function getHumanChoice() {
-    const choices = ['rock', 'paper', 'scissors']
-    const userInput = String(prompt(`Rock, Paper, or Scissors?`)).toLowerCase()
-    if (choices.includes(userInput)) {
-        return userInput;
-    } else {
-        alert('Invalid choice. Please enter "rock", "paper", or "scissors".');
-        return getHumanChoice(); // Recursively ask for input again
-    }
-}
-
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
-        console.log (`It's a tie! Both chose ${humanChoice}.`)
-        return
+        let score = `It's a tie! Both chose ${humanChoice}.`
+        return score
     } else if (
     (humanChoice === 'Rock' && computerChoice === 'Scissors') ||
     (humanChoice === 'Paper' && computerChoice === 'Rock') ||
     (humanChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
-        console.log (`You win! ${humanChoice} beats ${computerChoice}.`)
-        return 1
+        let score = `You win! ${humanChoice} beats ${computerChoice}.`
+        return score
     } else {
-        console.log (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
-        return 0
+        let score = (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
+        return score
     }
 }
 
@@ -63,6 +52,16 @@ function playGame() {
     return (`${winner} wins! The final score is: Human - ${humanScore} to Computer - ${computerScore}`)
 }
 
+const container = document.querySelector('div.container')
+
+// note that starting with adding position, flex properties may no longer work as expected
+// and this is a manual technique for positioning of the created scoreDiv within padding of container in css
+// also, added position: relative in css for container
+const scoreDiv = document.createElement('div')
+scoreDiv.classList.add('score')
+scoreDiv.style.color = 'rgb(237, 75, 12)'
+scoreDiv.style.position = 'absolute'
+scoreDiv.style.bottom = '20px'
 
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
@@ -72,15 +71,8 @@ buttons.forEach((button) => {
         let humanChoice = button.id.charAt(0).toUpperCase() + button.id.slice(1)
         let computerChoice = getComputerChoice()
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-        playRound(computerChoice,humanChoice)
+        scoreDiv.textContent = playRound(computerChoice,humanChoice)
+        container.appendChild(scoreDiv)
     });
 });
 
-// const rock = document.querySelector('#rock')
-// const paper = document.querySelector('#paper')
-// const scissors = document.querySelector('#scissors')
-
-
-
-
-// console.log(playGame())

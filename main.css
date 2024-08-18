@@ -33,8 +33,12 @@ body {       /* Can alternatively define in html {}. */
     /* justify-content: center; */
     align-items: center;
     background-color: black;
+    border: 5px dotted rgb(25, 99, 92);
+    border-radius: 5px;
     /* margin:; */
-    padding: 20px;
+    padding-bottom: 51px;
+    /* added position for scoreDiv */
+    position: relative 
 }
 
 .myButtons {
