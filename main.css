@@ -108,11 +108,12 @@ button {
     border-right: 4px dotted rgb(25, 99, 92);
 }
 
-h1 {
+/* h1 {
     color:silver
-}
+} */
 
 h2 {
+    color: silver;
     font-style: italic;
 }
 

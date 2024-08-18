@@ -60,7 +60,8 @@ const roundDiv = document.createElement('div')
 roundDiv.classList.add('roundSummary')
 roundDiv.style.color = 'rgb(237, 75, 12)'
 roundDiv.style.position = 'absolute'
-roundDiv.style.bottom = '20px'
+roundDiv.style.bottom = '15px'
+roundDiv.style.fontSize = '25px'
 
 const humanScoreDiv = document.querySelector('.humanScore')
 let humanScore = Number(humanScoreDiv.textContent)
