@@ -99,11 +99,20 @@ button {
     border: 3px dotted rgb(25, 99, 92);
     border-radius: 8px;
     display: flex;
-    /* align-self: center; */
+    align-self: center;
     align-items: center;
     justify-content: center;
-
 }
+
+#score {
+    margin-top: 50%;
+    font-size: 200px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content:space-around;
+}
+
 
 h2 {
     font-style: italic;
