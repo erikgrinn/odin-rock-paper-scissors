@@ -69,10 +69,10 @@ roundDiv.style.color = 'rgb(237, 75, 12)'
 roundDiv.style.position = 'absolute'
 roundDiv.style.bottom = '20px'
 
-const humanScoreDiv = document.querySelector('.humanScore .score')
+const humanScoreDiv = document.querySelector('.humanScore')
 let humanScore = Number(humanScoreDiv.textContent)
 
-const computerScoreDiv = document.querySelector('.computerScore .score')
+const computerScoreDiv = document.querySelector('.computerScore')
 let computerScore = Number(computerScoreDiv.textContent)
 
 // buttons is a node list. It looks and acts much like an array.
