@@ -55,7 +55,6 @@ buttons.forEach((button) => {
         container.appendChild(roundDiv)
         humanScoreDiv.textContent = humanScore
         computerScoreDiv.textContent = computerScore
-        console.log(computerScore, humanScore)
         if (humanScore >= 5) {
             roundDiv.textContent = `Match Over: You win this time.`
         } else if (computerScore >= 5) {
