@@ -21,7 +21,8 @@ body {       /* Can alternatively define in html {}. */
   /* background-image:; */
   color: rgb(237, 75, 12);
   font-family: "Roboto", sans-serif;
-  /* margin: 8px; */
+  height: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
