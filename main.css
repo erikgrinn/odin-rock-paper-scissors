@@ -21,12 +21,9 @@ body {       /* Can alternatively define in html {}. */
   /* background-image:; */
   color: rgb(237, 75, 12);
   font-family: "Roboto", sans-serif;
-  margin: 8px;
+  /* margin: 8px; */
   display: flex;
   flex-direction: column;
- 
-  /* padding:; */
-  /* max-width:; */
 }
 
 button {
@@ -59,19 +56,9 @@ button {
     justify-content:space-between;
 }
 
-/* .circle {
-    background: rgb(25, 99, 92);
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    display: flex;
-    align-self: center;
-    margin-top: 20px;
-} */
-
 .players {
     color: rgb(25, 99, 92);
-    font-size: 50px;
+    font-size: 46px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -85,8 +72,6 @@ button {
     height: 100px;
     border: 3px solid rgb(25, 99, 92);
     border-radius: 50%;
-
-    /* border-radius: 8px; */
     display: flex;
     align-items: center;
     justify-content: center;

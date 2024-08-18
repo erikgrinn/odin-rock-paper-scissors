@@ -26,38 +26,6 @@ function playRound(computerChoice, humanChoice) {
 }
 
 
-function playGame() {
-
-    if (humanScore === 5) {
-        return `You win this time.`
-    } else if (computerScore === 5) {
-        return `Better luck next time.`
-    }
-    
-    // for (var i = 0; i < 5; i++) {
-    //     let computerChoice = getComputerChoice()
-    //     computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-    //     let humanChoice = getHumanChoice()
-    //     humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)
-    //     result = playRound(computerChoice, humanChoice)
-    //     if (result === 0) {
-    //         computerScore++
-    //     } else if (result === 1) {
-    //         humanScore++
-    //     }
-    // }
-
-    let winner = null
-    if (computerScore > humanScore) {
-        winner = 'Computer'
-    } else if (humanScore > computerScore) {
-        winner = 'Human'
-    } else {
-        winner = `Neither player`
-    }
-    return (`${winner} wins! The final score is: Human - ${humanScore} to Computer - ${computerScore}`)
-}
-
 const container = document.querySelector('div.container')
 
 // note that starting with adding position, flex properties may no longer work as expected
