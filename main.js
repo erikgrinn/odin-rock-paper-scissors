@@ -64,4 +64,23 @@ function playGame() {
 }
 
 
-console.log(playGame())
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let humanChoice = button.id.charAt(0).toUpperCase() + button.id.slice(1)
+        let computerChoice = getComputerChoice()
+        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+        playRound(computerChoice,humanChoice)
+    });
+});
+
+// const rock = document.querySelector('#rock')
+// const paper = document.querySelector('#paper')
+// const scissors = document.querySelector('#scissors')
+
+
+
+
+// console.log(playGame())
