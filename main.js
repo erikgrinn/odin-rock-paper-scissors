@@ -42,12 +42,19 @@ function handleClick (event) {
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
+        replayButton.addEventListener('click', () => {
+            location.reload()
+        })
         document.body.appendChild(replayButton)
     } else if (computerScore >= 5) {
         roundDiv.textContent = `Match Over: Better luck next time.`
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
+
+        replayButton.addEventListener('click', () => {
+            location.reload()
+        })
         document.body.appendChild(replayButton)
     }
 }
@@ -71,6 +78,7 @@ let humanScore = Number(humanScoreDiv.textContent)
 const computerScoreDiv = document.querySelector('.computerScore')
 let computerScore = Number(computerScoreDiv.textContent)
 
+// z-index needed for button to be clickable
 const replayButton = document.createElement('button')
 replayButton.classList.add('replay')
 replayButton.textContent = 'Try again?'
@@ -87,7 +95,7 @@ replayButton.style.cssText = `
     text-align: center;
     margin: auto;
     border: 5px outset rgb(145, 64, 32);
-
+    z-index: 9; 
 `
 
 // buttons is a node list. It looks and acts much like an array.
@@ -95,18 +103,5 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", handleClick)
-    //     let humanChoice = button.id.charAt(0).toUpperCase() + button.id.slice(1)
-    //     let computerChoice = getComputerChoice()
-    //     computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-    //     roundDiv.textContent = playRound(computerChoice,humanChoice)
-    //     container.appendChild(roundDiv)
-    //     humanScoreDiv.textContent = humanScore
-    //     computerScoreDiv.textContent = computerScore
-    //     if (humanScore >= 5) {
-    //         roundDiv.textContent = `Match Over: You win this time.`
-    //     } else if (computerScore >= 5) {
-    //         roundDiv.textContent = `Match Over: Better luck next time.`
-    //     }
-    // });
 });
 
