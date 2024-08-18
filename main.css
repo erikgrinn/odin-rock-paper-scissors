@@ -78,7 +78,15 @@ button {
     align-items: center;
     margin-top: 20px;
     justify-content: space-around;
-    /* gap: 300px; */
+}
+
+/* flex is great, but are this many necessary? particularly before adding below */
+.humanScore,
+.computerScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #vline {
@@ -99,7 +107,6 @@ button {
     border: 3px dotted rgb(25, 99, 92);
     border-radius: 8px;
     display: flex;
-    align-self: center;
     align-items: center;
     justify-content: center;
 }
