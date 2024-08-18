@@ -41,7 +41,7 @@ button {
     flex-direction: column;
     align-items: center;
     background-color: black;
-    border: 5px ridge rgb(25, 99, 92);
+    border: 5px solid rgb(25, 99, 92);
     border-radius: 5px;
     padding-bottom: 51px;
     margin: 8px;
