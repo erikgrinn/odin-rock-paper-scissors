@@ -25,6 +25,27 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
+function handleClick (event) {
+    let humanChoice = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1)
+    let computerChoice = getComputerChoice()
+    computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+    roundDiv.textContent = playRound(computerChoice,humanChoice)
+    container.appendChild(roundDiv)
+    humanScoreDiv.textContent = humanScore
+    computerScoreDiv.textContent = computerScore
+    if (humanScore >= 5) {
+        roundDiv.textContent = `Match Over: You win this time.`
+        buttons.forEach((button) => {
+            button.removeEventListener("click", handleClick);
+        });
+    } else if (computerScore >= 5) {
+        roundDiv.textContent = `Match Over: Better luck next time.`
+        buttons.forEach((button) => {
+        button.removeEventListener("click", handleClick);
+        });
+    }
+}
+
 
 const container = document.querySelector('div.container')
 
@@ -47,19 +68,19 @@ let computerScore = Number(computerScoreDiv.textContent)
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        let humanChoice = button.id.charAt(0).toUpperCase() + button.id.slice(1)
-        let computerChoice = getComputerChoice()
-        computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-        roundDiv.textContent = playRound(computerChoice,humanChoice)
-        container.appendChild(roundDiv)
-        humanScoreDiv.textContent = humanScore
-        computerScoreDiv.textContent = computerScore
-        if (humanScore >= 5) {
-            roundDiv.textContent = `Match Over: You win this time.`
-        } else if (computerScore >= 5) {
-            roundDiv.textContent = `Match Over: Better luck next time.`
-        }
-    });
+    button.addEventListener("click", handleClick)
+    //     let humanChoice = button.id.charAt(0).toUpperCase() + button.id.slice(1)
+    //     let computerChoice = getComputerChoice()
+    //     computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
+    //     roundDiv.textContent = playRound(computerChoice,humanChoice)
+    //     container.appendChild(roundDiv)
+    //     humanScoreDiv.textContent = humanScore
+    //     computerScoreDiv.textContent = computerScore
+    //     if (humanScore >= 5) {
+    //         roundDiv.textContent = `Match Over: You win this time.`
+    //     } else if (computerScore >= 5) {
+    //         roundDiv.textContent = `Match Over: Better luck next time.`
+    //     }
+    // });
 });
 
