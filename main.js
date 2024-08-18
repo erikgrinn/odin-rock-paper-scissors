@@ -9,6 +9,7 @@ function getComputerChoice() {
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
         let roundSummary = `It's a tie! Both chose ${humanChoice}.`
+        roundDiv.style.color = 'silver'
         return roundSummary
     } else if (
     (humanChoice === 'Rock' && computerChoice === 'Scissors') ||
@@ -17,10 +18,12 @@ function playRound(computerChoice, humanChoice) {
     ) {
         let roundSummary = `You win! ${humanChoice} beats ${computerChoice}.`
         humanScore++
+        roundDiv.style.color = 'green'
         return roundSummary
     } else {
         let roundSummary = (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
         computerScore++
+        roundDiv.style.color = 'red'
         return roundSummary
     }
 }
@@ -33,6 +36,7 @@ function handleClick (event) {
     container.appendChild(roundDiv)
     humanScoreDiv.textContent = humanScore
     computerScoreDiv.textContent = computerScore
+
     if (humanScore >= 5) {
         roundDiv.textContent = `Match Over: You win this time.`
         buttons.forEach((button) => {
@@ -41,7 +45,7 @@ function handleClick (event) {
     } else if (computerScore >= 5) {
         roundDiv.textContent = `Match Over: Better luck next time.`
         buttons.forEach((button) => {
-        button.removeEventListener("click", handleClick);
+            button.removeEventListener("click", handleClick);
         });
     }
 }

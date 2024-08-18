@@ -44,6 +44,7 @@ button {
     border: 5px ridge rgb(25, 99, 92);
     border-radius: 5px;
     padding-bottom: 51px;
+    margin: 8px;
     /* added position for roundDiv */
     position: relative; 
 }
