@@ -16,17 +16,23 @@ function playRound(computerChoice, humanChoice) {
     (humanChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
         let roundSummary = `You win! ${humanChoice} beats ${computerChoice}.`
+        humanScore++
         return roundSummary
     } else {
         let roundSummary = (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
+        computerScore++
         return roundSummary
     }
 }
 
 
 function playGame() {
-    let computerScore = 0
-    let humanScore = 0 
+
+    if (humanScore === 5) {
+        return `You win this time.`
+    } else if (computerScore === 5) {
+        return `Better luck next time.`
+    }
     
     // for (var i = 0; i < 5; i++) {
     //     let computerChoice = getComputerChoice()
@@ -63,6 +69,12 @@ roundDiv.style.color = 'rgb(237, 75, 12)'
 roundDiv.style.position = 'absolute'
 roundDiv.style.bottom = '20px'
 
+const humanScoreDiv = document.querySelector('.humanScore .score')
+let humanScore = Number(humanScoreDiv.textContent)
+
+const computerScoreDiv = document.querySelector('.computerScore .score')
+let computerScore = Number(computerScoreDiv.textContent)
+
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
 
@@ -73,6 +85,14 @@ buttons.forEach((button) => {
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
         roundDiv.textContent = playRound(computerChoice,humanChoice)
         container.appendChild(roundDiv)
+        humanScoreDiv.textContent = humanScore
+        computerScoreDiv.textContent = computerScore
+        console.log(computerScore, humanScore)
+        if (humanScore >= 5) {
+            roundDiv.textContent = `Match Over: You win this time.`
+        } else if (computerScore >= 5) {
+            roundDiv.textContent = `Match Over: Better luck next time.`
+        }
     });
 });
 
