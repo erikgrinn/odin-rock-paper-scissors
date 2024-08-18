@@ -51,7 +51,6 @@ function handleClick (event) {
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
-
         replayButton.addEventListener('click', () => {
             location.reload()
         })
