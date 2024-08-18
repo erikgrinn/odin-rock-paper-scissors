@@ -42,11 +42,13 @@ function handleClick (event) {
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
+        document.body.appendChild(replayButton)
     } else if (computerScore >= 5) {
         roundDiv.textContent = `Match Over: Better luck next time.`
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
+        document.body.appendChild(replayButton)
     }
 }
 
@@ -68,6 +70,25 @@ let humanScore = Number(humanScoreDiv.textContent)
 
 const computerScoreDiv = document.querySelector('.computerScore')
 let computerScore = Number(computerScoreDiv.textContent)
+
+const replayButton = document.createElement('button')
+replayButton.classList.add('replay')
+replayButton.textContent = 'Try again?'
+replayButton.style.cssText = `
+    background-color: rgb(25, 99, 92);
+    color: silver;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    position: absolute;
+    top: 414px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    border: 5px outset rgb(145, 64, 32);
+
+`
 
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
