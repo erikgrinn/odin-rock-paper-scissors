@@ -55,13 +55,13 @@ function playGame() {
 const container = document.querySelector('div.container')
 
 // note that starting with adding position, flex properties may no longer work as expected
-// and this is a manual technique for positioning of the created scoreDiv within padding of container in css
+// and this is a manual technique for positioning of the created roundDiv within padding of container in css
 // also, added position: relative in css for container
-const scoreDiv = document.createElement('div')
-scoreDiv.classList.add('score')
-scoreDiv.style.color = 'rgb(237, 75, 12)'
-scoreDiv.style.position = 'absolute'
-scoreDiv.style.bottom = '20px'
+const roundDiv = document.createElement('div')
+roundDiv.classList.add('score')
+roundDiv.style.color = 'rgb(237, 75, 12)'
+roundDiv.style.position = 'absolute'
+roundDiv.style.bottom = '20px'
 
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
@@ -71,8 +71,8 @@ buttons.forEach((button) => {
         let humanChoice = button.id.charAt(0).toUpperCase() + button.id.slice(1)
         let computerChoice = getComputerChoice()
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-        scoreDiv.textContent = playRound(computerChoice,humanChoice)
-        container.appendChild(scoreDiv)
+        roundDiv.textContent = playRound(computerChoice,humanChoice)
+        container.appendChild(roundDiv)
     });
 });
 

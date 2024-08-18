@@ -37,7 +37,7 @@ body {       /* Can alternatively define in html {}. */
     border-radius: 5px;
     /* margin:; */
     padding-bottom: 51px;
-    /* added position for scoreDiv */
+    /* added position for roundDiv */
     position: relative 
 }
 
