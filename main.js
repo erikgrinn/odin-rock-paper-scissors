@@ -28,6 +28,12 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
+const humanScoreDiv = document.querySelector('.humanScore')
+let humanScore = Number(humanScoreDiv.textContent)
+
+const computerScoreDiv = document.querySelector('.computerScore')
+let computerScore = Number(computerScoreDiv.textContent)
+
 function handleClick (event) {
     let humanChoice = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1)
     let computerChoice = getComputerChoice()
@@ -36,6 +42,7 @@ function handleClick (event) {
     container.appendChild(roundDiv)
     humanScoreDiv.textContent = humanScore
     computerScoreDiv.textContent = computerScore
+    console.log(humanScore,computerScore, humanChoice, computerChoice)
 
     if (humanScore >= 5) {
         roundDiv.textContent = `Match Over: You win this time.`
@@ -43,7 +50,18 @@ function handleClick (event) {
             button.removeEventListener("click", handleClick);
         });
         replayButton.addEventListener('click', () => {
-            location.reload()
+            humanScoreDiv.textContent = '0'
+            computerScoreDiv.textContent = '0'
+            humanScore = 0
+            computerScore = 0
+            humanChoice = null
+            computerChoice = null
+            console.log(humanScore,computerScore, humanChoice, computerChoice)
+            roundDiv.textContent = ''
+            replayButton.style.visibility = 'hidden'
+            buttons.forEach((button) => {
+                button.addEventListener("click", handleClick);
+            });
         })
         document.body.appendChild(replayButton)
     } else if (computerScore >= 5) {
@@ -52,12 +70,21 @@ function handleClick (event) {
             button.removeEventListener("click", handleClick);
         });
         replayButton.addEventListener('click', () => {
-            location.reload()
+            humanScoreDiv.textContent = '0'
+            computerScoreDiv.textContent = '0'
+            humanScore = 0
+            computerScore = 0
+            humanChoice = null
+            computerChoice = null
+            roundDiv.textContent = ''
+            replayButton.style.visibility = 'hidden'
+            buttons.forEach((button) => {
+                button.addEventListener("click", handleClick);
+            });
         })
         document.body.appendChild(replayButton)
     }
 }
-
 
 const container = document.querySelector('div.container')
 
@@ -70,12 +97,6 @@ roundDiv.style.color = 'rgb(237, 75, 12)'
 roundDiv.style.position = 'absolute'
 roundDiv.style.bottom = '15px'
 roundDiv.style.fontSize = '25px'
-
-const humanScoreDiv = document.querySelector('.humanScore')
-let humanScore = Number(humanScoreDiv.textContent)
-
-const computerScoreDiv = document.querySelector('.computerScore')
-let computerScore = Number(computerScoreDiv.textContent)
 
 // z-index needed for button to be clickable
 const replayButton = document.createElement('button')
