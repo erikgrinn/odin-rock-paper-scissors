@@ -49,6 +49,7 @@ function handleClick (event) {
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
+        replayButton.style.visibility = 'visible'
         replayButton.addEventListener('click', () => {
             humanScoreDiv.textContent = '0'
             computerScoreDiv.textContent = '0'
@@ -68,6 +69,7 @@ function handleClick (event) {
         buttons.forEach((button) => {
             button.removeEventListener("click", handleClick);
         });
+        replayButton.style.visibility = 'visible'
         replayButton.addEventListener('click', () => {
             humanScoreDiv.textContent = '0'
             computerScoreDiv.textContent = '0'
