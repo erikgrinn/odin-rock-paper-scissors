@@ -56,7 +56,6 @@ function handleClick (event) {
             computerScore = 0
             humanChoice = null
             computerChoice = null
-            console.log(humanScore,computerScore, humanChoice, computerChoice)
             roundDiv.textContent = ''
             replayButton.style.visibility = 'hidden'
             buttons.forEach((button) => {
