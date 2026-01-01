@@ -1,108 +1,109 @@
 function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomIndex = Math.floor(Math.random() * choices.length)
-    return choices[randomIndex]
-    // return choices[Math.floor(Math.random() * choices.length)];
+  const choices = ["rock", "paper", "scissors"];
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
-
 
 function playRound(computerChoice, humanChoice) {
-    if (computerChoice === humanChoice) {
-        let roundSummary = `It's a tie! Both chose ${humanChoice}.`
-        roundDiv.style.color = 'silver'
-        return roundSummary
-    } else if (
-    (humanChoice === 'Rock' && computerChoice === 'Scissors') ||
-    (humanChoice === 'Paper' && computerChoice === 'Rock') ||
-    (humanChoice === 'Scissors' && computerChoice === 'Paper')
-    ) {
-        let roundSummary = `You win! ${humanChoice} beats ${computerChoice}.`
-        humanScore++
-        roundDiv.style.color = 'green'
-        return roundSummary
-    } else {
-        let roundSummary = (`Computer wins! ${computerChoice} beats ${humanChoice}.`)
-        computerScore++
-        roundDiv.style.color = 'red'
-        return roundSummary
-    }
+  if (computerChoice === humanChoice) {
+    let roundSummary = `It's a tie! Both chose ${humanChoice}.`;
+    roundDiv.style.color = "silver";
+    return roundSummary;
+  } else if (
+    (humanChoice === "Rock" && computerChoice === "Scissors") ||
+    (humanChoice === "Paper" && computerChoice === "Rock") ||
+    (humanChoice === "Scissors" && computerChoice === "Paper")
+  ) {
+    let roundSummary = `You win! ${humanChoice} beats ${computerChoice}.`;
+    humanScore++;
+    roundDiv.style.color = "green";
+    return roundSummary;
+  } else {
+    let roundSummary = `Computer wins! ${computerChoice} beats ${humanChoice}.`;
+    computerScore++;
+    roundDiv.style.color = "red";
+    return roundSummary;
+  }
 }
 
-const humanScoreDiv = document.querySelector('.humanScore')
-let humanScore = Number(humanScoreDiv.textContent)
+const humanScoreDiv = document.querySelector(".humanScore");
+let humanScore = Number(humanScoreDiv.textContent);
 
-const computerScoreDiv = document.querySelector('.computerScore')
-let computerScore = Number(computerScoreDiv.textContent)
+const computerScoreDiv = document.querySelector(".computerScore");
+let computerScore = Number(computerScoreDiv.textContent);
 
-function handleClick (event) {
-    let humanChoice = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1)
-    let computerChoice = getComputerChoice()
-    computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
-    roundDiv.textContent = playRound(computerChoice,humanChoice)
-    container.appendChild(roundDiv)
-    humanScoreDiv.textContent = humanScore
-    computerScoreDiv.textContent = computerScore
-    console.log(humanScore,computerScore, humanChoice, computerChoice)
+function handleClick(event) {
+  let humanChoice = event.target.id.charAt(0).toUpperCase() + event.target.id.slice(1);
+  let computerChoice = getComputerChoice();
+  computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+  roundDiv.textContent = playRound(computerChoice, humanChoice);
+  // roundDiv is a single, consistently referenced object outside of function
+  // every append will simply move it to the bottom of container
+  // if roundDiv was made inside function, then new ones would be appended because new ones are made on click
+  container.appendChild(roundDiv);
+  humanScoreDiv.textContent = humanScore;
+  computerScoreDiv.textContent = computerScore;
+  console.log(humanScore, computerScore, humanChoice, computerChoice);
 
-    if (humanScore >= 5) {
-        roundDiv.textContent = `Match Over: You win this time.`
-        buttons.forEach((button) => {
-            button.removeEventListener("click", handleClick);
-        });
-        replayButton.style.visibility = 'visible'
-        replayButton.addEventListener('click', () => {
-            humanScoreDiv.textContent = '0'
-            computerScoreDiv.textContent = '0'
-            humanScore = 0
-            computerScore = 0
-            humanChoice = null
-            computerChoice = null
-            roundDiv.textContent = ''
-            replayButton.style.visibility = 'hidden'
-            buttons.forEach((button) => {
-                button.addEventListener("click", handleClick);
-            });
-        })
-        document.body.appendChild(replayButton)
-    } else if (computerScore >= 5) {
-        roundDiv.textContent = `Match Over: Better luck next time.`
-        buttons.forEach((button) => {
-            button.removeEventListener("click", handleClick);
-        });
-        replayButton.style.visibility = 'visible'
-        replayButton.addEventListener('click', () => {
-            humanScoreDiv.textContent = '0'
-            computerScoreDiv.textContent = '0'
-            humanScore = 0
-            computerScore = 0
-            humanChoice = null
-            computerChoice = null
-            roundDiv.textContent = ''
-            replayButton.style.visibility = 'hidden'
-            buttons.forEach((button) => {
-                button.addEventListener("click", handleClick);
-            });
-        })
-        document.body.appendChild(replayButton)
-    }
+  if (humanScore >= 5) {
+    roundDiv.textContent = `Match Over: You win this time.`;
+    buttons.forEach((button) => {
+      button.removeEventListener("click", handleClick);
+    });
+    replayButton.style.visibility = "visible";
+    replayButton.addEventListener("click", () => {
+      humanScoreDiv.textContent = "0";
+      computerScoreDiv.textContent = "0";
+      humanScore = 0;
+      computerScore = 0;
+      humanChoice = null;
+      computerChoice = null;
+      roundDiv.textContent = "";
+      replayButton.style.visibility = "hidden";
+      buttons.forEach((button) => {
+        button.addEventListener("click", handleClick);
+      });
+    });
+    document.body.appendChild(replayButton);
+  } else if (computerScore >= 5) {
+    roundDiv.textContent = `Match Over: Better luck next time.`;
+    buttons.forEach((button) => {
+      button.removeEventListener("click", handleClick);
+    });
+    replayButton.style.visibility = "visible";
+    replayButton.addEventListener("click", () => {
+      humanScoreDiv.textContent = "0";
+      computerScoreDiv.textContent = "0";
+      humanScore = 0;
+      computerScore = 0;
+      humanChoice = null;
+      computerChoice = null;
+      roundDiv.textContent = "";
+      replayButton.style.visibility = "hidden";
+      buttons.forEach((button) => {
+        button.addEventListener("click", handleClick);
+      });
+    });
+    document.body.appendChild(replayButton);
+  }
 }
 
-const container = document.querySelector('div.container')
+const container = document.querySelector("div.container");
 
 // note that starting with adding position, flex properties may no longer work as expected
 // and this is a manual technique for positioning of the created roundDiv within padding of container in css
 // also, added position: relative in css for container
-const roundDiv = document.createElement('div')
-roundDiv.classList.add('roundSummary')
-roundDiv.style.color = 'rgb(237, 75, 12)'
-roundDiv.style.position = 'absolute'
-roundDiv.style.bottom = '15px'
-roundDiv.style.fontSize = '25px'
+const roundDiv = document.createElement("div");
+roundDiv.classList.add("roundSummary");
+roundDiv.style.color = "rgb(237, 75, 12)";
+roundDiv.style.position = "absolute";
+roundDiv.style.bottom = "15px";
+roundDiv.style.fontSize = "25px";
 
 // z-index needed for button to be clickable
-const replayButton = document.createElement('button')
-replayButton.classList.add('replay')
-replayButton.textContent = 'Try again?'
+const replayButton = document.createElement("button");
+replayButton.classList.add("replay");
+replayButton.textContent = "Try again?";
 replayButton.style.cssText = `
     background-color: rgb(25, 99, 92);
     color: silver;
@@ -117,12 +118,11 @@ replayButton.style.cssText = `
     margin: auto;
     border: 5px outset rgb(145, 64, 32);
     z-index: 9; 
-`
+`;
 
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-    button.addEventListener("click", handleClick)
+  button.addEventListener("click", handleClick);
 });
-
